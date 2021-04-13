@@ -17,9 +17,9 @@ requires you to go download it on the Internet on your own.
 
 Hyperparameters for training are specificied in the Appendix of the paper
 and are described in the configs.py file. There are several parameters that you might want to specify: 
-    - the indexes of the nodes you would like to explain
-    -  the number of samples used in GraphSVX
-    - some settings of GraphSVX: feat, coal, g, regu, S, hv, fullempty, hops (see configs file)
+- the indexes of the nodes you would like to explain
+- the number of samples used in GraphSVX
+- some settings of GraphSVX: feat, coal, g, regu, S, hv, fullempty, hops (see configs file)
 
 ### To train a model 
 If you would like to train your own model on a chosen dataset, run: 
@@ -30,28 +30,25 @@ Otherwise, all trained models (except for Mutagenicity) already exist and can be
 
 ### Evaluation 
 To follow the evaluation setting described in the paper, you should run the files: 
-    - script_eval_noise.py: evaluate GraphSVX on noisy dataset and observe number of 
-    noisy features/nodes included in explanations 
-    - script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. 
+- script_eval_noise.py: evaluate GraphSVX on noisy dataset and observe number of noisy features/nodes included in explanations 
+- script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. 
 All parameters are in the configs.py file, along with a small documentation. 
 
 
 ### The structure of the code is as follows: 
 In src: 
-    - explainers.py: defines GraphSVX and main baselines
-    - data.py: import and process the data 
-    - models.py: define GNN models
-    - train.py: train GNN models
-    - utils.py: stores useful variables
-    - eval.py: one of the evaluation of the paper, with real world datasets
-    - eval_multiclass.py: explain all classes predictions
-    - plots.py: code for nice renderings
-    - gengraph.py: generates synthetic datasets
+- explainers.py: defines GraphSVX and main baselines
+- data.py: import and process the data 
+- models.py: define GNN models
+- train.py: train GNN models
+- utils.py: stores useful variables
+- eval.py: one of the evaluation of the paper, with real world datasets
+- eval_multiclass.py: explain all classes predictions
+- plots.py: code for nice renderings
+- gengraph.py: generates synthetic datasets
 
 Outside: 
-    - results: stores visualisation and evaluation results
-    - data: contains some datasets, others will be downloaded automatically
-    when launching the training script (Cora, PubMed)
-    - models: contains our trained models
-    - utils: some useful functions to construct datasets, store them, 
-    create plots, train models etc. 
+- results: stores visualisation and evaluation results
+- data: contains some datasets, others will be downloaded automatically when launching the training script (Cora, PubMed)
+- models: contains our trained models
+- utils: some useful functions to construct datasets, store them, create plots, train models etc. 
