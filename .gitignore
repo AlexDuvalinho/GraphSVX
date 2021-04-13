@@ -1,0 +1,21 @@
+# Basic
+__pycache__
+.DS_Store
+.idea
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Files to 
+.vscode/
+data/Amazon/
+data/Cora/
+data/PubMed/
+data/Mutagenicity.pkl
+data/Mutagenicity.pth
+data/Mutagenicity/
+models/GCN_model_Mutagenicity.pth
