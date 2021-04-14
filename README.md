@@ -4,7 +4,12 @@
 This repository contains the source code for the paper "_GraphSVX: Shapley Value Explanations for Graph Neural Networks_"
 by Alexandre Duval and Fragkiskos Malliaros. 
 
-If needed, install the required packages contained in requirements.txt
+If needed, install the required packages contained in requirements.txt as well as three additional packages 
+that need to be installed separately (because of their dependency to pytorch). 
+```
+pip install -r requirements.txt
+pip install torch-sparse torch-scatter torch-cluster
+```
 
 ### To explain a model using GraphSVX
 To explain the predictions of a model on a node or graph classification task, run the following command
@@ -19,7 +24,7 @@ Hyperparameters for training are specificied in the Appendix of the paper
 and are described in the configs.py file. There are several parameters that you might want to specify: 
 - the indexes of the nodes you would like to explain
 - the number of samples used in GraphSVX
-- some settings of GraphSVX: feat, coal, g, regu, S, hv, fullempty, hops (see configs file)
+- some settings of GraphSVX such as feat, coal, g, regu, S, hv, fullempty, hops (see configs file)
 
 ### To train a model 
 If you would like to train your own model on a chosen dataset, run: 
@@ -30,8 +35,20 @@ Otherwise, all trained models (except for Mutagenicity) already exist and can be
 
 ### Evaluation 
 To follow the evaluation setting described in the paper, you should run the files: 
-- script_eval_noise.py: evaluate GraphSVX on noisy dataset and observe number of noisy features/nodes included in explanations 
-- script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. 
+- script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
+```
+python3 script_eval_gt.py --dataset='syn1' --model='GCN' --num_samples=400 --hops=3 --feat='Expectation' --S=1 --coal='SmarterSeparate'
+```
+- script_eval_noise_node.py: evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations. Run this set of commands to evaluate GraphSVX on the Cora dataset, for noisy nodes and noisy features respectively: 
+```
+python3 script_eval_noise_node.py --dataset=Cora --num_samples=3000 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --S=3 
+python3 script_eval_noise_node.py --dataset=Cora --num_samples=800 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --coal='NewSmarterSeparate' --S=3 --regu=0
+```
+- script_eval_noise_feat.py: evaluate GraphSVX on noisy dataset and observe number of noisy features included in explanations.
+```
+python3 script_eval_noise_feat.py --dataset=Cora --model=GAT --num_samples=3000 --test_samples=40 --hops=2 --hv=compute_pred_subgraph
+```
+
 All parameters are in the configs.py file, along with a small documentation. 
 
 
