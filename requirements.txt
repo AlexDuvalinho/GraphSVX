@@ -1,16 +1,18 @@
-torch==1.6.0
-torch-geometric==1.6.1
-torchvision==0.7.0
-torch-sparse
-torch-cluster
-torch-scatter
+torch>=1.6.0
+torch-geometric>=1.6.1
+torchvision>=0.7.0
 tensorboardX
 seaborn==0.10.1
 
+# To install separately 
+# torch-sparse
+# torch-cluster
+# torch-scatter
+
+# Colab specific 
 # torch-geometric==1.6.1
 # torch==1.6.0+cu101
 # torchvision==0.7.0+cu101
 # torch-sparse==latest+cu101
 # torch-cluster==latest+cu101
 # torch-scatter==latest+cu101
-# seaborn
