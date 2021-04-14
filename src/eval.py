@@ -436,7 +436,7 @@ def filter_useless_features(args_dataset,
         if sum(total_num_noise_feat_considered) != 0:
             perc = 100 * sum(pred_class_num_noise_feats) / (sum(total_num_noise_feat_considered))
             perc2 = 100 * (sum(K) - sum(pred_class_num_noise_feats)) / (sum(F) - sum(total_num_noise_feat_considered)) 
-            print('Proportion of noisy features found in explanations vs normal features (among considered ones): {:.2f}% vs {:.2f}%, over considered features only'.format(
+            print('Proportion of noisy features found in explanations vs proportion of normal features (among considered ones): {:.2f}% vs {:.2f}%, over considered features only'.format(
                 perc, perc2))
 
         print('------------------------------------')

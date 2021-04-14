@@ -1,11 +1,11 @@
 import argparse
 
 def arg_parse():
-    parser = argparse.ArgumentParser(description='GraphPool arguments.')
+    parser = argparse.ArgumentParser()
 
     # Utils params
     utils_parser = parser.add_argument_group('utils')
-    utils_parser.add_argument('--cuda', dest='cuda', help='CUDA.')
+    utils_parser.add_argument('--cuda', help='CUDA.')
     utils_parser.add_argument('--gpu', default=False, help='whether to use GPU.')
     utils_parser.add_argument("--seed", type=int)
     utils_parser.add_argument("--save", type=str,
@@ -64,7 +64,7 @@ def arg_parse():
     eval_noise_parser.add_argument("--connectedness", type=str,
                         help='how connected are the noisy nodes we define: low, high or medium')
     eval_noise_parser.add_argument("--evalshap", type=bool,
-                        help='True if want to compare GraphSVX with SHAP')
+                        help='True if want to compare GraphSVX with SHAP for features explanations')
     
     # Explanations params
     parser.add_argument("--model", type=str,
@@ -97,10 +97,10 @@ def arg_parse():
     parser.add_argument("--S", type=int,
                         help='Max size of coalitions sampled in priority and treated specifically')
 
-    # args_hv: compute_pred', 'basic_default', 'neutral', 'graph_classification', 'compute_pred_subgraph'
+    # args_hv: 'compute_pred', 'compute_pred_subgraph', 'graph_classification'
     # args_feat: 'All', 'Expectation', 'Null'
     # args_coal: 'NewSmarterSeparate', 'SmarterSeparate', 'Smarter', 'Smart', 'Random', 'All'
-    # args_g: WLS, 'WLR_sklearn', 'WLR_Lasso'
+    # args_g: 'WLS', 'WLR', 'WLR_sklearn', 'WLR_Lasso'
 
     parser.set_defaults(dataset='syn1',
                         model='GCN',
@@ -128,7 +128,7 @@ def arg_parse():
                         prop_noise_feat=0.20,
                         prop_noise_nodes=0.20,
                         connectedness='medium',
-                        opt='adam',   # opt_parser
+                        opt='adam', 
                         max_nodes=100,
                         feature_type='default',
                         lr=0.001,

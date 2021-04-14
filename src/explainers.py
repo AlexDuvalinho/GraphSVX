@@ -1489,7 +1489,6 @@ class GraphSVX():
         phi = np.squeeze(phi, axis=1)
         return phi.detach().numpy().astype('float64'), base_value.detach().numpy().astype('float64')
  
-        ################################
 
     ################################
     # INFO ON EXPLANATIONS
