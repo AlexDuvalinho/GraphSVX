@@ -34,7 +34,7 @@ python3 script_train.py --dataset='DATASET_NAME' --model='MODEL_NAME' --save=Tru
 Otherwise, all trained models (except for Mutagenicity) already exist and can be used directly. 
 
 ### Evaluation 
-To follow the evaluation setting described in the paper, you should run the files: 
+To follow the evaluation setting described in the paper, you should create a results folder and run the files: 
 - script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
 ```
 python3 script_eval_gt.py --dataset='syn1' --model='GCN' --num_samples=400 --hops=3 --feat='Expectation' --S=1 --coal='SmarterSeparate'
@@ -48,7 +48,6 @@ python3 script_eval_noise_node.py --dataset=Cora --num_samples=800 --hops=2 --hv
 ```
 python3 script_eval_noise_feat.py --dataset=Cora --model=GAT --num_samples=3000 --test_samples=40 --hops=2 --hv=compute_pred_subgraph
 ```
-
 All parameters are in the configs.py file, along with a small documentation. 
 
 
