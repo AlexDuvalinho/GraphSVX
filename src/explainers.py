@@ -288,6 +288,7 @@ class GraphSVX():
                                                      multiclass, info)
 
             phi_list.append(phi)
+            self.base_values.append(base_value)
 
             return phi_list
 
