@@ -1,12 +1,16 @@
 
 # GraphSVX: Shapley Value Explanations for Graph Neural Networks 
 
-This repository contains the source code for the paper "_GraphSVX: Shapley Value Explanations for Graph Neural Networks_"
+This repository contains the source code for the paper [_GraphSVX: Shapley Value Explanations for Graph Neural Networks_](/https://arxiv.org/abs/2104.10482), 
 by Alexandre Duval and Fragkiskos Malliaros - accepted at the international data mining conference _ECML_PKDD 2021_. 
 
+### Abstract
+Graph Neural Networks (GNNs) achieve significant performance for various learning tasks on geometric data due to the incorporation of graph structure into the learning of node representations, which renders their comprehension challenging. In this paper, we first propose a unified framework satisfied by most existing GNN explainers. Then, we introduce GraphSVX, a post hoc local model-agnostic explanation method specifically designed for GNNs. GraphSVX is a decomposition technique that captures the “fair” contribution of each feature and node towards the explained prediction by constructing a surrogate model on a perturbed dataset. It extends to graphs and ultimately provides as explanation the Shapley Values from game theory. Experiments on real-world and synthetic datasets demonstrate that GraphSVX achieves state-of-the-art performance compared to baseline models while presenting core theoretical and human-centric properties.
+
+![Framework Image](/utils/pipeline_figure.png)
 
 ### Set up 
-If needed, install the required packages contained in requirements.txt as well as three additional packages 
+If needed, install the required packages contained in [requirements.txt](/requirements.txt) as well as three additional packages 
 that need to be installed separately (because of their dependency to pytorch). 
 ```
 pip install -r requirements.txt
@@ -14,7 +18,7 @@ pip install torch-sparse torch-scatter torch-cluster
 ```
 
 ### To explain a model using GraphSVX
-To explain the predictions of a model on a node or graph classification task, run the following command
+To explain the predictions of a model on a node or graph classification task, run [script_explain.py](/script_explain.py):
 ```
 python3 script_explain.py --dataset='DATASET_NAME' --model='MODEL_NAME' --info=True
 ```
@@ -29,7 +33,7 @@ and are described in the configs.py file. There are several parameters that you 
 - some settings of GraphSVX such as feat, coal, g, regu, S, hv, fullempty, hops (see configs file)
 
 ### To train a model 
-If you would like to train your own model on a chosen dataset, run: 
+If you would like to train your own model on a chosen dataset, run [script_train.py](/script_train.py): 
 ```
 python3 script_train.py --dataset='DATASET_NAME' --model='MODEL_NAME' --save=True
 ```
@@ -37,16 +41,16 @@ Otherwise, all trained models (except for Mutagenicity) already exist and can be
 
 ### Evaluation 
 To follow the evaluation setting described in the paper, you should create a results folder and run the files: 
-- script_eval_gt.py: evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
+- [script_eval_gt.py](/script_eval_gt.py): evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
 ```
 python3 script_eval_gt.py --dataset='syn1' --model='GCN' --num_samples=400 --hops=3 --feat='Expectation' --S=1 --coal='SmarterSeparate'
 ```
-- script_eval_noise_node.py: evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations. Run this set of commands to evaluate GraphSVX on the Cora dataset, for noisy nodes and noisy features respectively: 
+- [script_eval_noise_node.py](/script_eval_noise_node.py): evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations. Run this set of commands to evaluate GraphSVX on the Cora dataset, for noisy nodes and noisy features respectively: 
 ```
 python3 script_eval_noise_node.py --dataset=Cora --num_samples=3000 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --S=3 
 python3 script_eval_noise_node.py --dataset=Cora --num_samples=800 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --coal='NewSmarterSeparate' --S=3 --regu=0
 ```
-- script_eval_noise_feat.py: evaluate GraphSVX on noisy dataset and observe number of noisy features included in explanations.
+- [script_eval_noise_feat.py](/script_eval_noise_feat.py): evaluate GraphSVX on noisy dataset and observe number of noisy features included in explanations.
 ```
 python3 script_eval_noise_feat.py --dataset=Cora --model=GAT --num_samples=3000 --test_samples=40 --hops=2 --hv=compute_pred_subgraph
 ```
@@ -81,4 +85,3 @@ Please cite the original paper if you are using GraphSVX in your work.
   year={2021}
 }
 ```
-This paper has been accepted by the international data minming conference ECML_PKDD 2021. 
