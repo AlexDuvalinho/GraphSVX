@@ -2,7 +2,7 @@
 # GraphSVX: Shapley Value Explanations for Graph Neural Networks 
 
 This repository contains the source code for the paper [_GraphSVX: Shapley Value Explanations for Graph Neural Networks_](/https://arxiv.org/abs/2104.10482), 
-by Alexandre Duval and Fragkiskos Malliaros - accepted at the international data mining conference _ECML_PKDD 2021_. 
+by Alexandre Duval and Fragkiskos Malliaros - accepted at the international data mining conference _ECML PKDD 2021_. 
 
 ### Abstract
 Graph Neural Networks (GNNs) achieve significant performance for various learning tasks on geometric data due to the incorporation of graph structure into the learning of node representations, which renders their comprehension challenging. In this paper, we first propose a unified framework satisfied by most existing GNN explainers. Then, we introduce GraphSVX, a post hoc local model-agnostic explanation method specifically designed for GNNs. GraphSVX is a decomposition technique that captures the “fair” contribution of each feature and node towards the explained prediction by constructing a surrogate model on a perturbed dataset. It extends to graphs and ultimately provides as explanation the Shapley Values from game theory. Experiments on real-world and synthetic datasets demonstrate that GraphSVX achieves state-of-the-art performance compared to baseline models while presenting core theoretical and human-centric properties.
