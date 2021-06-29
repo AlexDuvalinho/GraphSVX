@@ -2,8 +2,10 @@
 # GraphSVX: Shapley Value Explanations for Graph Neural Networks 
 
 This repository contains the source code for the paper "_GraphSVX: Shapley Value Explanations for Graph Neural Networks_"
-by Alexandre Duval and Fragkiskos Malliaros. 
+by Alexandre Duval and Fragkiskos Malliaros - accepted at the international data mining conference _ECML_PKDD 2021_. 
 
+
+### Set up 
 If needed, install the required packages contained in requirements.txt as well as three additional packages 
 that need to be installed separately (because of their dependency to pytorch). 
 ```
@@ -68,3 +70,15 @@ Outside:
 - data: contains some datasets, others will be downloaded automatically when launching the training script (Cora, PubMed)
 - models: contains our trained models
 - utils: some useful functions to construct datasets, store them, create plots, train models etc. 
+
+### Citation 
+Please cite the original paper if you are using GraphSVX in your work. 
+```
+@article{duval2021graphsvx,
+  title={GraphSVX: Shapley Value Explanations for Graph Neural Networks},
+  author={Duval, Alexandre and Malliaros, Fragkiskos D},
+  journal={arXiv preprint arXiv:2104.10482},
+  year={2021}
+}
+```
+This paper has been accepted by the international data minming conference ECML_PKDD 2021. 
