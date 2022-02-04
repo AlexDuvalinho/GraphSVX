@@ -1,7 +1,7 @@
 
 # GraphSVX: Shapley Value Explanations for Graph Neural Networks 
 
-This repository contains the source code for the paper [GraphSVX: Shapley Value Explanations for Graph Neural Networks_](https://arxiv.org/abs/2104.10482), 
+This repository contains the source code for the paper [GraphSVX: Shapley Value Explanations for Graph Neural Networks_](https://2021.ecmlpkdd.org/wp-content/uploads/2021/07/sub_135.pdf), 
 by Alexandre Duval and Fragkiskos Malliaros - accepted at the _European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD) 2021_. 
 
 ### Abstract
@@ -43,11 +43,14 @@ Otherwise, all trained models (except for Mutagenicity) already exist and can be
 To follow the evaluation setting described in the paper, you should create a results folder and run the files: 
 - [script_eval_gt.py](/script_eval_gt.py): evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
 ```
-python3 script_eval_gt.py --dataset='syn1' --model='GCN' --num_samples=400 --hops=3 --feat='Expectation' --S=1 --coal='SmarterSeparate'
+python3 script_eval_gt.py --dataset='syn1' --num_samples=400 --S=1 --coal='SmarterSeparate' --feat='Expectation'
+python3  script_eval_gt.py --dataset='syn2' --num_samples=800 --S=1 --coal='SmarterSeparate' --feat='All'
+python3  script_eval_gt.py --dataset='syn4' --num_samples=1400 --S=4 --coal='SmarterSeparate' --feat='Expectation' 
+python3  script_eval_gt.py --dataset='syn5' --num_samples=1000 --S=4 --coal='SmarterSeparate' --feat=‘Expectation’
+python3 script_eval_gt.py --dataset='syn6' --num_samples=200 --S=4 --coal='SmarterSeparate' --feat='Expectation'
 ```
-- [script_eval_noise_node.py](/script_eval_noise_node.py): evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations. Run this set of commands to evaluate GraphSVX on the Cora dataset, for noisy nodes and noisy features respectively: 
+- [script_eval_noise_node.py](/script_eval_noise_node.py): evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations.
 ```
-python3 script_eval_noise_node.py --dataset=Cora --num_samples=3000 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --S=3 
 python3 script_eval_noise_node.py --dataset=Cora --num_samples=800 --hops=2 --hv='compute_pred' --test_samples=40 --model='GAT' --coal='NewSmarterSeparate' --S=3 --regu=0
 ```
 - [script_eval_noise_feat.py](/script_eval_noise_feat.py): evaluate GraphSVX on noisy dataset and observe number of noisy features included in explanations.
@@ -78,10 +81,10 @@ Outside:
 ### Citation 
 Please cite the original paper if you are using GraphSVX in your work. 
 ```
-@article{duval2021graphsvx,
+@inproceedings{duval2021graphsvx,
   title={GraphSVX: Shapley Value Explanations for Graph Neural Networks},
-  author={Duval, Alexandre and Malliaros, Fragkiskos D},
-  journal={arXiv preprint arXiv:2104.10482},
+  author={Duval, Alexandre and Malliaros, Fragkiskos},
+  booktitle={European Conference on Machine Learning and Knowledge Discovery in Databases (ECML PKDD)},
   year={2021}
 }
 ```
