@@ -44,9 +44,9 @@ To follow the evaluation setting described in the paper, you should create a res
 - [script_eval_gt.py](/script_eval_gt.py): evaluate GraphSVX on synthetic datasets with a ground truth. For instance, run this command to evaluate GraphSVX on the BA-Shapes dataset ('syn1'). 
 ```
 python3 script_eval_gt.py --dataset='syn1' --num_samples=400 --S=1 --coal='SmarterSeparate' --feat='Expectation'
-python3  script_eval_gt.py --dataset='syn2' --num_samples=800 --S=1 --coal='SmarterSeparate' --feat='All'
-python3  script_eval_gt.py --dataset='syn4' --num_samples=1400 --S=4 --coal='SmarterSeparate' --feat='Expectation' 
-python3  script_eval_gt.py --dataset='syn5' --num_samples=1000 --S=4 --coal='SmarterSeparate' --feat=‘Expectation’
+python3 script_eval_gt.py --dataset='syn2' --num_samples=800 --S=1 --coal='SmarterSeparate' --feat='All'
+python3 script_eval_gt.py --dataset='syn4' --num_samples=1400 --S=4 --coal='SmarterSeparate' --feat='Expectation' 
+python3 script_eval_gt.py --dataset='syn5' --num_samples=1000 --S=4 --coal='SmarterSeparate' --feat=‘Expectation’
 python3 script_eval_gt.py --dataset='syn6' --num_samples=200 --S=4 --coal='SmarterSeparate' --feat='Expectation'
 ```
 - [script_eval_noise_node.py](/script_eval_noise_node.py): evaluate GraphSVX on noisy dataset and observe number of noisy nodes included in explanations.
